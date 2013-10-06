@@ -1,0 +1,1350 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>CuteSong</class>
+ <widget class="QMainWindow" name="CuteSong">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>801</width>
+    <height>615</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>CuteSong</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <property name="font">
+    <font>
+     <weight>75</weight>
+     <italic>false</italic>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="2" column="0" colspan="2">
+     <layout class="QHBoxLayout" name="horizontalLayout_2">
+      <item>
+       <widget class="Phonon::SeekSlider" name="trackSlider"/>
+      </item>
+      <item>
+       <widget class="QLCDNumber" name="lcdProgress">
+        <property name="frameShape">
+         <enum>QFrame::NoFrame</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Plain</enum>
+        </property>
+        <property name="numDigits">
+         <number>4</number>
+        </property>
+        <property name="segmentStyle">
+         <enum>QLCDNumber::Flat</enum>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item row="3" column="0" colspan="2">
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <property name="spacing">
+       <number>1</number>
+      </property>
+      <property name="sizeConstraint">
+       <enum>QLayout::SetDefaultConstraint</enum>
+      </property>
+      <item>
+       <widget class="QPushButton" name="addFileButton">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="text">
+         <string>Open Files</string>
+        </property>
+        <property name="icon">
+         <iconset>
+          <normaloff>Data/File.png</normaloff>Data/File.png</iconset>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="previousButton">
+        <property name="maximumSize">
+         <size>
+          <width>40</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset>
+          <normaloff>Data/Track[Back].png</normaloff>Data/Track[Back].png</iconset>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="playButton">
+        <property name="maximumSize">
+         <size>
+          <width>40</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset>
+          <normaloff>Data/Play.png</normaloff>Data/Play.png</iconset>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="nextButton">
+        <property name="maximumSize">
+         <size>
+          <width>40</width>
+          <height>500</height>
+         </size>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset>
+          <normaloff>Data/Track[Forward].png</normaloff>Data/Track[Forward].png</iconset>
+        </property>
+        <property name="autoDefault">
+         <bool>false</bool>
+        </property>
+        <property name="default">
+         <bool>false</bool>
+        </property>
+        <property name="flat">
+         <bool>false</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QCheckBox" name="randomCheckBox">
+        <property name="text">
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset>
+          <normaloff>Data/glyphicons_083_random.png</normaloff>Data/glyphicons_083_random.png</iconset>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QComboBox" name="repeatChoice">
+        <item>
+         <property name="text">
+          <string>Normal</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Repeat One</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Repeat All</string>
+         </property>
+        </item>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="repeatLabel">
+        <property name="maximumSize">
+         <size>
+          <width>20</width>
+          <height>20</height>
+         </size>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="pixmap">
+         <pixmap>Data/repeatNormal.png</pixmap>
+        </property>
+        <property name="scaledContents">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="horizontalSpacer">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeType">
+         <enum>QSizePolicy::Expanding</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>500</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="Phonon::VolumeSlider" name="volumeSlider">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>150</width>
+          <height>15</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>0</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="autoFillBackground">
+         <bool>false</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="horizontalSpacer_2">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeType">
+         <enum>QSizePolicy::Fixed</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+     </layout>
+    </item>
+    <item row="0" column="0">
+     <widget class="QTabWidget" name="tabWidget">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="tabShape">
+       <enum>QTabWidget::Rounded</enum>
+      </property>
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <widget class="QWidget" name="homeTab">
+       <attribute name="icon">
+        <iconset>
+         <normaloff>Data/glyphicons_018_note.png</normaloff>Data/glyphicons_018_note.png</iconset>
+       </attribute>
+       <attribute name="title">
+        <string>Play</string>
+       </attribute>
+       <layout class="QGridLayout" name="gridLayout_3">
+        <item row="7" column="1">
+         <widget class="QLabel" name="labelAlbum">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+            <horstretch>7</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>230</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="0" colspan="2">
+         <widget class="QLabel" name="coverLabel">
+          <property name="enabled">
+           <bool>true</bool>
+          </property>
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>280</width>
+            <height>280</height>
+           </size>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="5" column="1">
+         <widget class="QLabel" name="labelTitle">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+            <horstretch>7</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>230</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+        </item>
+        <item row="7" column="0">
+         <widget class="QLabel" name="label">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+            <horstretch>4</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="text">
+           <string>Album :</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="3" rowspan="6">
+         <widget class="QListWidget" name="playlist">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+            <horstretch>15</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+         </widget>
+        </item>
+        <item row="6" column="0">
+         <widget class="QLabel" name="label_2">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+            <horstretch>4</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="text">
+           <string>Artist :</string>
+          </property>
+         </widget>
+        </item>
+        <item row="6" column="1">
+         <widget class="QLabel" name="labelArtist">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+            <horstretch>7</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>230</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+        </item>
+        <item row="5" column="0">
+         <widget class="QLabel" name="label_3">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+            <horstretch>4</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="text">
+           <string>Title :</string>
+          </property>
+         </widget>
+        </item>
+        <item row="7" column="3">
+         <widget class="QPushButton" name="rmPlaylistButton">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="text">
+           <string>Remove</string>
+          </property>
+          <property name="icon">
+           <iconset>
+            <normaloff>Data/glyphicons_197_remove.png</normaloff>Data/glyphicons_197_remove.png</iconset>
+          </property>
+         </widget>
+        </item>
+        <item row="4" column="0">
+         <spacer name="verticalSpacer">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item row="6" column="3">
+         <layout class="QHBoxLayout" name="horizontalLayout_3">
+          <item>
+           <widget class="QPushButton" name="moveUpButton">
+            <property name="text">
+             <string>Move up</string>
+            </property>
+            <property name="icon">
+             <iconset>
+              <normaloff>Data/glyphicons_213_up_arrow.png</normaloff>Data/glyphicons_213_up_arrow.png</iconset>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="moveDownButton">
+            <property name="text">
+             <string>Move down</string>
+            </property>
+            <property name="icon">
+             <iconset>
+              <normaloff>Data/glyphicons_212_down_arrow.png</normaloff>Data/glyphicons_212_down_arrow.png</iconset>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="bibliothequeTab">
+       <attribute name="icon">
+        <iconset>
+         <normaloff>Data/iTunes.png</normaloff>Data/iTunes.png</iconset>
+       </attribute>
+       <attribute name="title">
+        <string>My Music</string>
+       </attribute>
+       <layout class="QGridLayout" name="gridLayout_4">
+        <item row="3" column="0" colspan="6">
+         <widget class="QTableView" name="bddView">
+          <property name="showGrid">
+           <bool>false</bool>
+          </property>
+          <property name="sortingEnabled">
+           <bool>true</bool>
+          </property>
+          <attribute name="horizontalHeaderStretchLastSection">
+           <bool>true</bool>
+          </attribute>
+          <attribute name="verticalHeaderCascadingSectionResizes">
+           <bool>true</bool>
+          </attribute>
+         </widget>
+        </item>
+        <item row="2" column="0">
+         <widget class="QPushButton" name="addButton">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="text">
+           <string>Add Files     </string>
+          </property>
+          <property name="icon">
+           <iconset>
+            <normaloff>Data/glyphicons_190_circle_plus.png</normaloff>Data/glyphicons_190_circle_plus.png</iconset>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="0" rowspan="2">
+         <widget class="QPushButton" name="rmButton">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="text">
+           <string>Remove File</string>
+          </property>
+          <property name="icon">
+           <iconset>
+            <normaloff>Data/glyphicons_197_remove.png</normaloff>Data/glyphicons_197_remove.png</iconset>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="5" rowspan="2">
+         <widget class="QPushButton" name="searchButton">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="icon">
+           <iconset>
+            <normaloff>Data/Search.png</normaloff>Data/Search.png</iconset>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="2" rowspan="2">
+         <widget class="QLabel" name="label_4">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="text">
+           <string>Search by :</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="3" rowspan="2">
+         <widget class="QComboBox" name="searchBy">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <item>
+           <property name="text">
+            <string>artist</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>album</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>title</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>filename</string>
+           </property>
+          </item>
+         </widget>
+        </item>
+        <item row="0" column="1" rowspan="3">
+         <widget class="QPushButton" name="playFilesButton">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="text">
+           <string>Play Files</string>
+          </property>
+          <property name="icon">
+           <iconset>
+            <normaloff>Data/Play.png</normaloff>Data/Play.png</iconset>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="4" rowspan="2">
+         <widget class="QLineEdit" name="searched">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="placeholderText">
+           <string>Search</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tabPlaylist">
+       <attribute name="icon">
+        <iconset>
+         <normaloff>Data/glyphicons_114_list.png</normaloff>Data/glyphicons_114_list.png</iconset>
+       </attribute>
+       <attribute name="title">
+        <string>Playlist</string>
+       </attribute>
+       <layout class="QGridLayout" name="gridLayout_2">
+        <item row="0" column="0">
+         <widget class="QPushButton" name="playPlaylistButton">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="text">
+           <string>Play Playlist</string>
+          </property>
+          <property name="icon">
+           <iconset>
+            <normaloff>Data/Play.png</normaloff>Data/Play.png</iconset>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1" rowspan="4">
+         <widget class="QTableView" name="tablePlaylistContent">
+          <property name="sortingEnabled">
+           <bool>false</bool>
+          </property>
+          <attribute name="horizontalHeaderDefaultSectionSize">
+           <number>100</number>
+          </attribute>
+          <attribute name="horizontalHeaderStretchLastSection">
+           <bool>true</bool>
+          </attribute>
+          <attribute name="verticalHeaderVisible">
+           <bool>false</bool>
+          </attribute>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <widget class="QPushButton" name="rmPlaylistButton_2">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="text">
+           <string>Delete Playlist</string>
+          </property>
+          <property name="icon">
+           <iconset>
+            <normaloff>Data/glyphicons_197_remove.png</normaloff>Data/glyphicons_197_remove.png</iconset>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="0">
+         <widget class="QTableView" name="tablePlaylists">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Fixed" vsizetype="Expanding">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <attribute name="horizontalHeaderStretchLastSection">
+           <bool>true</bool>
+          </attribute>
+          <attribute name="verticalHeaderStretchLastSection">
+           <bool>false</bool>
+          </attribute>
+         </widget>
+        </item>
+        <item row="2" column="0">
+         <widget class="QPushButton" name="renamePlaylistButton">
+          <property name="text">
+           <string>Rename Playlist</string>
+          </property>
+          <property name="icon">
+           <iconset>
+            <normaloff>Data/glyphicons_114_list.png</normaloff>Data/glyphicons_114_list.png</iconset>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="wikiTab">
+       <attribute name="icon">
+        <iconset>
+         <normaloff>Data/Globe.png</normaloff>Data/Globe.png</iconset>
+       </attribute>
+       <attribute name="title">
+        <string>Wiki</string>
+       </attribute>
+       <layout class="QGridLayout" name="gridLayout_7">
+        <item row="0" column="0">
+         <widget class="QWebView" name="wikiView">
+          <property name="url">
+           <url>
+            <string>about:blank</string>
+           </url>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>801</width>
+     <height>29</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuPlaylist">
+    <property name="title">
+     <string>Playlist</string>
+    </property>
+    <addaction name="actionSauver_playlist_courante"/>
+    <addaction name="actionExport_to_PLS"/>
+    <addaction name="actionImport_from_PLS"/>
+   </widget>
+   <widget class="QMenu" name="menuBibliotheque">
+    <property name="title">
+     <string>My Music</string>
+    </property>
+    <addaction name="actionAjouter_dossier"/>
+    <addaction name="actionAjouter_fichiers"/>
+   </widget>
+   <widget class="QMenu" name="menuFichier">
+    <property name="title">
+     <string>Files</string>
+    </property>
+    <addaction name="actionOuvrir_fichier"/>
+    <addaction name="separator"/>
+    <addaction name="actionOpen_Directory"/>
+    <addaction name="actionChange_cover"/>
+    <addaction name="actionEdit_song_s_tag"/>
+    <addaction name="separator"/>
+    <addaction name="actionQuit"/>
+   </widget>
+   <widget class="QMenu" name="menuLecture">
+    <property name="title">
+     <string>Play</string>
+    </property>
+    <addaction name="actionPlay"/>
+    <addaction name="actionPause"/>
+    <addaction name="actionStop"/>
+    <addaction name="separator"/>
+    <addaction name="actionPrevious"/>
+    <addaction name="actionNext"/>
+    <addaction name="separator"/>
+    <addaction name="actionMute"/>
+    <addaction name="actionVolume_Down"/>
+    <addaction name="actionVolume_up"/>
+   </widget>
+   <addaction name="menuFichier"/>
+   <addaction name="menuLecture"/>
+   <addaction name="menuBibliotheque"/>
+   <addaction name="menuPlaylist"/>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+  <action name="actionQuitter">
+   <property name="text">
+    <string>Quitter</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Q</string>
+   </property>
+  </action>
+  <action name="actionOuvrir_fichier">
+   <property name="icon">
+    <iconset>
+     <normaloff>Data/File.png</normaloff>Data/File.png</iconset>
+   </property>
+   <property name="text">
+    <string>Open file</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+O</string>
+   </property>
+   <property name="iconVisibleInMenu">
+    <bool>true</bool>
+   </property>
+  </action>
+  <action name="actionQuit">
+   <property name="icon">
+    <iconset>
+     <normaloff>Data/Blocked.png</normaloff>Data/Blocked.png</iconset>
+   </property>
+   <property name="text">
+    <string>Quit</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Q</string>
+   </property>
+   <property name="iconVisibleInMenu">
+    <bool>true</bool>
+   </property>
+  </action>
+  <action name="actionAjouter_dossier">
+   <property name="icon">
+    <iconset>
+     <normaloff>Data/Folder.png</normaloff>Data/Folder.png</iconset>
+   </property>
+   <property name="text">
+    <string>Add Directory</string>
+   </property>
+   <property name="iconVisibleInMenu">
+    <bool>true</bool>
+   </property>
+  </action>
+  <action name="actionAjouter_fichiers">
+   <property name="icon">
+    <iconset>
+     <normaloff>Data/File.png</normaloff>Data/File.png</iconset>
+   </property>
+   <property name="text">
+    <string>Add Files</string>
+   </property>
+   <property name="iconVisibleInMenu">
+    <bool>true</bool>
+   </property>
+  </action>
+  <action name="actionAjouter_dossier_2">
+   <property name="text">
+    <string>Ajouter dossier</string>
+   </property>
+  </action>
+  <action name="actionAjouter_Fichier">
+   <property name="text">
+    <string>Ajouter Fichier</string>
+   </property>
+  </action>
+  <action name="actionSauver_playlist_courante">
+   <property name="icon">
+    <iconset>
+     <normaloff>Data/Floppy.png</normaloff>Data/Floppy.png</iconset>
+   </property>
+   <property name="text">
+    <string>Save current playlist</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+S</string>
+   </property>
+   <property name="iconVisibleInMenu">
+    <bool>true</bool>
+   </property>
+  </action>
+  <action name="actionOpen_Directory">
+   <property name="icon">
+    <iconset>
+     <normaloff>Data/Folder.png</normaloff>Data/Folder.png</iconset>
+   </property>
+   <property name="text">
+    <string>Open Directory</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Shift+O</string>
+   </property>
+   <property name="iconVisibleInMenu">
+    <bool>true</bool>
+   </property>
+  </action>
+  <action name="actionChange_cover">
+   <property name="icon">
+    <iconset>
+     <normaloff>Data/glyphicons_151_new_window.png</normaloff>Data/glyphicons_151_new_window.png</iconset>
+   </property>
+   <property name="text">
+    <string>Change song's cover</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Shift+E</string>
+   </property>
+   <property name="iconVisibleInMenu">
+    <bool>true</bool>
+   </property>
+  </action>
+  <action name="actionSelect_a_playlist">
+   <property name="icon">
+    <iconset>
+     <normaloff>Data/glyphicons_114_list.png</normaloff>Data/glyphicons_114_list.png</iconset>
+   </property>
+   <property name="text">
+    <string>Select playlist</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+P</string>
+   </property>
+   <property name="iconVisibleInMenu">
+    <bool>true</bool>
+   </property>
+  </action>
+  <action name="actionSelect_a_song">
+   <property name="icon">
+    <iconset>
+     <normaloff>Data/glyphicons_018_note.png</normaloff>Data/glyphicons_018_note.png</iconset>
+   </property>
+   <property name="text">
+    <string>Select songs</string>
+   </property>
+   <property name="iconVisibleInMenu">
+    <bool>true</bool>
+   </property>
+  </action>
+  <action name="actionPlay">
+   <property name="icon">
+    <iconset>
+     <normaloff>Data/Play.png</normaloff>Data/Play.png</iconset>
+   </property>
+   <property name="text">
+    <string>Play</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+F1</string>
+   </property>
+   <property name="iconVisibleInMenu">
+    <bool>true</bool>
+   </property>
+  </action>
+  <action name="actionPause">
+   <property name="icon">
+    <iconset>
+     <normaloff>Data/Pause.png</normaloff>Data/Pause.png</iconset>
+   </property>
+   <property name="text">
+    <string>Pause</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+F2</string>
+   </property>
+   <property name="iconVisibleInMenu">
+    <bool>true</bool>
+   </property>
+  </action>
+  <action name="actionStop">
+   <property name="icon">
+    <iconset>
+     <normaloff>Data/Stop.png</normaloff>Data/Stop.png</iconset>
+   </property>
+   <property name="text">
+    <string>Stop</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+F3</string>
+   </property>
+   <property name="iconVisibleInMenu">
+    <bool>true</bool>
+   </property>
+  </action>
+  <action name="actionNext">
+   <property name="icon">
+    <iconset>
+     <normaloff>Data/Track[Forward].png</normaloff>Data/Track[Forward].png</iconset>
+   </property>
+   <property name="text">
+    <string>Next</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+F5</string>
+   </property>
+   <property name="iconVisibleInMenu">
+    <bool>true</bool>
+   </property>
+  </action>
+  <action name="actionPrevious">
+   <property name="icon">
+    <iconset>
+     <normaloff>Data/Track[Back].png</normaloff>Data/Track[Back].png</iconset>
+   </property>
+   <property name="text">
+    <string>Previous</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+F4</string>
+   </property>
+   <property name="iconVisibleInMenu">
+    <bool>true</bool>
+   </property>
+  </action>
+  <action name="actionMute">
+   <property name="icon">
+    <iconset>
+     <normaloff>Data/glyphicons_182_mute.png</normaloff>Data/glyphicons_182_mute.png</iconset>
+   </property>
+   <property name="text">
+    <string>Mute</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+F10</string>
+   </property>
+   <property name="iconVisibleInMenu">
+    <bool>true</bool>
+   </property>
+  </action>
+  <action name="actionVolume_up">
+   <property name="icon">
+    <iconset>
+     <normaloff>Data/glyphicons_184_volume_up.png</normaloff>Data/glyphicons_184_volume_up.png</iconset>
+   </property>
+   <property name="text">
+    <string>Volume up</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+F12</string>
+   </property>
+   <property name="iconVisibleInMenu">
+    <bool>true</bool>
+   </property>
+  </action>
+  <action name="actionVolume_Down">
+   <property name="icon">
+    <iconset>
+     <normaloff>Data/glyphicons_183_volume_down.png</normaloff>Data/glyphicons_183_volume_down.png</iconset>
+   </property>
+   <property name="text">
+    <string>Volume Down</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+F11</string>
+   </property>
+   <property name="iconVisibleInMenu">
+    <bool>true</bool>
+   </property>
+  </action>
+  <action name="actionEdit_song_s_tag">
+   <property name="icon">
+    <iconset>
+     <normaloff>Data/List.png</normaloff>Data/List.png</iconset>
+   </property>
+   <property name="text">
+    <string>Edit song's tag</string>
+   </property>
+   <property name="iconVisibleInMenu">
+    <bool>true</bool>
+   </property>
+  </action>
+  <action name="actionExport_to_PLS">
+   <property name="icon">
+    <iconset>
+     <normaloff>Data/Sign-up.png</normaloff>Data/Sign-up.png</iconset>
+   </property>
+   <property name="text">
+    <string>Export to PLS</string>
+   </property>
+   <property name="iconVisibleInMenu">
+    <bool>true</bool>
+   </property>
+  </action>
+  <action name="actionImport_from_PLS">
+   <property name="icon">
+    <iconset>
+     <normaloff>Data/Sign-Down.png</normaloff>Data/Sign-Down.png</iconset>
+   </property>
+   <property name="text">
+    <string>Import from PLS</string>
+   </property>
+   <property name="iconVisibleInMenu">
+    <bool>true</bool>
+   </property>
+  </action>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>Phonon::SeekSlider</class>
+   <extends>QWidget</extends>
+   <header location="global">phonon/seekslider.h</header>
+  </customwidget>
+  <customwidget>
+   <class>Phonon::VolumeSlider</class>
+   <extends>QWidget</extends>
+   <header location="global">phonon/volumeslider.h</header>
+  </customwidget>
+  <customwidget>
+   <class>QWebView</class>
+   <extends>QWidget</extends>
+   <header>QtWebKit/QWebView</header>
+  </customwidget>
+ </customwidgets>
+ <tabstops>
+  <tabstop>addFileButton</tabstop>
+  <tabstop>previousButton</tabstop>
+  <tabstop>playButton</tabstop>
+  <tabstop>nextButton</tabstop>
+  <tabstop>randomCheckBox</tabstop>
+  <tabstop>repeatChoice</tabstop>
+  <tabstop>tabWidget</tabstop>
+  <tabstop>playlist</tabstop>
+  <tabstop>rmPlaylistButton</tabstop>
+  <tabstop>addButton</tabstop>
+  <tabstop>rmButton</tabstop>
+  <tabstop>searchBy</tabstop>
+  <tabstop>searched</tabstop>
+  <tabstop>searchButton</tabstop>
+  <tabstop>bddView</tabstop>
+  <tabstop>playFilesButton</tabstop>
+  <tabstop>rmPlaylistButton_2</tabstop>
+  <tabstop>tablePlaylistContent</tabstop>
+  <tabstop>tablePlaylists</tabstop>
+  <tabstop>playPlaylistButton</tabstop>
+  <tabstop>wikiView</tabstop>
+ </tabstops>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>playButton</sender>
+   <signal>clicked()</signal>
+   <receiver>CuteSong</receiver>
+   <slot>playPause()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>195</x>
+     <y>524</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>217</x>
+     <y>146</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>addFileButton</sender>
+   <signal>clicked()</signal>
+   <receiver>CuteSong</receiver>
+   <slot>addFile()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>65</x>
+     <y>524</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>103</x>
+     <y>146</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>nextButton</sender>
+   <signal>clicked()</signal>
+   <receiver>CuteSong</receiver>
+   <slot>next()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>236</x>
+     <y>524</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>361</x>
+     <y>147</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>previousButton</sender>
+   <signal>clicked()</signal>
+   <receiver>CuteSong</receiver>
+   <slot>previous()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>154</x>
+     <y>524</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>415</x>
+     <y>377</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>addButton</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>CuteSong</receiver>
+   <slot>on_addButton_clicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>28</x>
+     <y>122</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>435</x>
+     <y>503</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>searchButton</sender>
+   <signal>clicked()</signal>
+   <receiver>CuteSong</receiver>
+   <slot>on_searchButton_toggled()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>736</x>
+     <y>115</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>626</x>
+     <y>494</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>rmPlaylistButton</sender>
+   <signal>clicked()</signal>
+   <receiver>CuteSong</receiver>
+   <slot>on_rmFromPlaylist_clicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>338</x>
+     <y>429</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>404</x>
+     <y>507</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>rmButton</sender>
+   <signal>clicked()</signal>
+   <receiver>CuteSong</receiver>
+   <slot>on_rmButton_toggled()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>28</x>
+     <y>85</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>532</x>
+     <y>523</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>rmPlaylistButton_2</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>CuteSong</receiver>
+   <slot>on_rmPlaylistButton_toggled()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>190</x>
+     <y>155</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>314</x>
+     <y>486</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>playFilesButton</sender>
+   <signal>clicked()</signal>
+   <receiver>CuteSong</receiver>
+   <slot>on_playFilesButton_toggled()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>166</x>
+     <y>90</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>765</x>
+     <y>497</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>playPlaylistButton</sender>
+   <signal>clicked()</signal>
+   <receiver>CuteSong</receiver>
+   <slot>on_playPlaylistButton_toggled()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>131</x>
+     <y>88</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>461</x>
+     <y>516</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>rmPlaylistButton_2</sender>
+   <signal>clicked()</signal>
+   <receiver>CuteSong</receiver>
+   <slot>on_rmPlaylistButton_toggled()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>99</x>
+     <y>155</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>298</x>
+     <y>531</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>searched</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>searchButton</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>467</x>
+     <y>116</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>736</x>
+     <y>115</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>playPause()</slot>
+  <slot>addFile()</slot>
+  <slot>next()</slot>
+  <slot>previous()</slot>
+  <slot>on_addButton_clicked()</slot>
+  <slot>on_rmButton_toggled()</slot>
+  <slot>on_searchButton_toggled()</slot>
+  <slot>on_rmFromPlaylist_clicked()</slot>
+  <slot>on_rmPlaylistButton_toggled()</slot>
+  <slot>on_playFilesButton_toggled()</slot>
+  <slot>on_playPlaylistButton_toggled()</slot>
+  <slot>on_button_changeCover_clicked()</slot>
+  <slot>on_playlisy_doubleClicked(QModelIndex)</slot>
+ </slots>
+</ui>
